@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Closed Folder yellow.ico" />
+    <None Remove="Closed Folder.ico" />
+    <None Remove="FLGRUS.ICO" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Closed Folder yellow.ico" />
+    <Resource Include="FLGRUS.ICO" />
+  </ItemGroup>
+
+</Project>

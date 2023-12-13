@@ -1,0 +1,102 @@
+﻿<Window x:Class="Prakt12.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Prakt12"
+        mc:Ignorable="d"
+        Title="Практическая работа №12" Height="450" Width="800" ResizeMode="CanMinimize" Icon="/FLGRUS.ICO" Loaded="Window_Loaded">
+    <Grid>
+        <Menu VerticalAlignment="Top">
+            <MenuItem>
+                <MenuItem.Icon>
+                    <Image Source="/Closed Folder yellow.ico"/>
+                </MenuItem.Icon>
+                <MenuItem.Header>
+                    <TextBlock Text="Файл" VerticalAlignment="Center"/>
+                </MenuItem.Header>
+                <MenuItem Header="Выход" Click="miExit_Click"/>
+            </MenuItem>
+            <MenuItem Header="Команды">
+                <MenuItem Header="Рассчитать">
+                    <MenuItem Header="Объем и площадь поверхности куба" Click="btnCalc1_Click"/>
+                    <MenuItem Header="Количество полных тонн и килограмм" Click="btnCalc2_Click"/>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="О программе" Click="miInfo_Click"/>
+        </Menu>
+        <TabControl x:Name="tabControl" Margin="0,30,0,22" SelectionChanged="TabControl_SelectionChanged">
+            <TabItem Header="Задача №1">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="6*"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Label Content="Исходные данные" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20"/>
+                    <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150">
+                        <Label Content="Длина ребра куба" FontSize="16"/>
+                        <TextBox x:Name="tbCubeSide" Margin="0,5" FontSize="16" MaxLength="6" TextChanged="tbCubeSide_TextChanged"/>
+                        <Button Content="Рассчитать" Margin="0,5" FontSize="16" ToolTip="Рассчитать объем и площадь поверхности куба" Click="btnCalc1_Click"/>
+                    </StackPanel>
+                    <GridSplitter Background="DarkGray" Grid.RowSpan="3" Width="2"/>
+                    <Label Content="Результат" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20"/>
+                    <StackPanel Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="220">
+                        <Label Content="Объем куба" FontSize="16"/>
+                        <TextBox x:Name="tbCubeVolume" Margin="0,5" FontSize="16" IsReadOnly="True"/>
+                        <Label Content="Площадь поверхности куба" FontSize="16"/>
+                        <TextBox x:Name="tbCubeArea" Margin="0,5" FontSize="16" IsReadOnly="True"/>
+                    </StackPanel>
+                    <Grid.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="Рассчитать" Click="btnCalc1_Click"/>
+                        </ContextMenu>
+                    </Grid.ContextMenu>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Задача №2">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="6*"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Label Content="Исходные данные" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20"/>
+                    <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="110">
+                        <Label Content="Масса, кг" FontSize="16"/>
+                        <TextBox x:Name="tbMass" Margin="0,5" FontSize="16" MaxLength="9" TextChanged="tbMass_TextChanged"/>
+                        <Button Content="Рассчитать" Margin="0,5" FontSize="16" ToolTip="Рассчитать количество полных тонн и килограмм" Click="btnCalc2_Click"/>
+                    </StackPanel>
+                    <GridSplitter Background="DarkGray" Grid.RowSpan="3" Width="2"/>
+                    <Label Content="Результат" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20"/>
+                    <StackPanel Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="280">
+                        <Label Content="Количество полных тонн" FontSize="16"/>
+                        <TextBox x:Name="tbTons" Margin="0,5" FontSize="16" IsReadOnly="True"/>
+                        <Label Content="Количество оставшихся килограмм" FontSize="16"/>
+                        <TextBox x:Name="tbRemainingKilograms" Margin="0,5" FontSize="16" IsReadOnly="True"/>
+                    </StackPanel>
+                    <Grid.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="Рассчитать" Click="btnCalc2_Click"/>
+                        </ContextMenu>
+                    </Grid.ContextMenu>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <StatusBar VerticalAlignment="Bottom">
+            <TextBlock x:Name="textBlockTask" Text="Задача №1"/>
+            <Separator/>
+            <TextBlock x:Name="textBlockDate"/>
+            <Separator/>
+            <TextBlock x:Name="textBlockTime"/>
+        </StatusBar>
+    </Grid>
+</Window>
